@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# set hostname on AmazonLinux2 EC2
+sudo hostnamectl set-hostname nodejs.mydomain.com
+
 # install docker
 sudo yum update -y 
 sudo amazon-linux-extras install docker -y 
@@ -18,4 +21,6 @@ git clone https://github.com/worzwhere/nodejsapp.git nodeapp
 cd nodeapp
 git clone https://github.com/CleverCloud/demo-nodejs-mongodb-rest.git app
 docker-compose build
-docker-compose up -d
+
+# reboot server
+sudo reboot
