@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# set hostname on AmazonLinux2 EC2
+sudo hostnamectl set-hostname mongodb.mydomain.com
+
 # install docker
 sudo yum update -y 
 sudo amazon-linux-extras install docker -y 
@@ -17,4 +20,6 @@ sudo yum install git -y
 git clone https://github.com/worzwhere/mongodb.git mongo
 cd mongo
 docker-compose build
-docker-compose up -d
+
+# reboot server
+sudo reboot
