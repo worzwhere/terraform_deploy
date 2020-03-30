@@ -35,7 +35,7 @@ resource "aws_instance" "mongodb" {
 
 resource "aws_instance" "jenkins" {
    ami  = "ami-01f7527546b557442"
-   instance_type = "t1.micro"
+   instance_type = "t2.micro"
    key_name = "${aws_key_pair.default.id}"
    user_data = "${file("jenkins_install.sh")}"
 
